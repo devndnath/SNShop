@@ -54,7 +54,7 @@
             <div class="main-header-right row">
                 <div class="main-header-left d-lg-none w-auto">
                     <div class="logo-wrapper">
-                        <a href="index.html">
+                        <a href="/">
                             <img class="blur-up lazyloaded d-block d-lg-none"
                                 src="{{asset('backend/assets/images/dashboard/multikart-logo-black.png')}}" alt="">
                         </a>
@@ -225,7 +225,7 @@
                     <div class="sidebar-user">
                         <img class="img-60" src="{{asset('backend/assets/images/dashboard/user3.jpg')}}" alt="#">
                         <div>
-                            <h6 class="f-14">JOHN</h6>
+                            <h6 class="f-14">{{Auth::user()->name}}</h6>
                             <p>general manager.</p>
                         </div>
                     </div>
@@ -542,10 +542,18 @@
                         </li>
 
                         <li>
-                            <a class="sidebar-header" href="login.html">
+                        
+                            <a class="sidebar-header" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" >
                                 <i data-feather="log-in"></i>
-                                <span>Login</span>
+                                <span>Logout</span>
                             </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}"
+                                                    method="POST" class="d-none">
+                                                    @csrf
+
+                                                </form>
                         </li>
                     </ul>
                 </div>

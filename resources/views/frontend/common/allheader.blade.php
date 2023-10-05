@@ -291,7 +291,7 @@
                                    <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                       <path d="M8 0H5.81818C4.85376 0 3.92883 0.383116 3.24688 1.06507C2.56493 1.74702 2.18182 2.67194 2.18182 3.63636V5.81818H0V8.72727H2.18182V14.5455H5.09091V8.72727H7.27273L8 5.81818H5.09091V3.63636C5.09091 3.44348 5.16753 3.25849 5.30392 3.1221C5.44031 2.98571 5.6253 2.90909 5.81818 2.90909H8V0Z" fill="currentColor"/>
                                    </svg>                                    
-                                </span> 7500k Followers
+                                </span>
                              </a>
                           </div>
                           <div class="tp-header-info-item">
@@ -343,20 +343,53 @@
                              </div>
                              <div class="tp-header-top-menu-item tp-header-setting">
                                 <span class="tp-header-setting-toggle" id="tp-header-setting-toggle">Setting</span>
-                                <ul>
-                                   <li>
-                                      <a href="profile.html">My Profile</a>
-                                   </li>
-                                   <li>
-                                      <a href="wishlist.html">Wishlist</a>
-                                   </li>
-                                   <li>
-                                      <a href="cart.html">Cart</a>
-                                   </li>
-                                   <li>
-                                      <a href="login.html">Logout</a>
-                                   </li>
-                                </ul>
+                                @guest
+                                @if (Route::has('login'))
+                                    <ul>
+
+                                        <li>
+                                            <a href="/login">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="/login">Register</a>
+                                        </li>
+
+                                    </ul>
+
+                                    @endif
+                                @else
+                                    
+                                        <ul>
+                                            <li>
+                                                <a href="/profile">My Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="/wishlist">Wishlist</a>
+                                            </li>
+                                            <li>
+                                                <a href="/cart">Cart</a>
+                                            </li>
+                                            <li>
+
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">Logout</a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}"
+                                                    method="POST" class="d-none">
+                                                    @csrf
+
+                                                </form>
+
+                                            </li>
+                                        </ul>
+
+
+
+
+
+
+                               @endguest
                              </div>
                           </div>
                        </div>
