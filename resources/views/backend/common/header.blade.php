@@ -10,8 +10,8 @@
     <meta name="keywords"
         content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{asset('backend/assets/images/dashboard/favicon.png')}}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{asset('backend/assets/images/dashboard/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('backend/assets/images/dashboard/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('backend/assets/images/dashboard/favicon.png') }}" type="image/x-icon">
     <title>Multikart - Premium Admin Template</title>
 
     <!-- Google font-->
@@ -23,25 +23,25 @@
 
 
     <!-- Font Awesome-->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/vendors/font-awesome.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/font-awesome.css') }}">
 
     <!-- Flag icon-->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/vendors/flag-icon.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/flag-icon.css') }}">
 
     <!-- ico-font-->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/vendors/icofont.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/icofont.css') }}">
 
     <!-- Prism css-->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/vendors/prism.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/prism.css') }}">
 
     <!-- Chartist css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/vendors/chartist.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/chartist.css') }}">
 
     <!-- Bootstrap css-->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/vendors/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/vendors/bootstrap.css') }}">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/style.css') }}">
 </head>
 
 <body>
@@ -56,7 +56,8 @@
                     <div class="logo-wrapper">
                         <a href="/">
                             <img class="blur-up lazyloaded d-block d-lg-none"
-                                src="{{asset('backend/assets/images/dashboard/multikart-logo-black.png')}}" alt="">
+                                src="{{ asset('backend/assets/images/dashboard/multikart-logo-black.png') }}"
+                                alt="">
                         </a>
                     </div>
                 </div>
@@ -132,7 +133,8 @@
                                         <div class="media-body">
                                             <h6 class="mt-0 txt-success">
                                                 <span>
-                                                    <i class="download-color font-success" data-feather="download"></i>
+                                                    <i class="download-color font-success"
+                                                        data-feather="download"></i>
                                                 </span>Download Complete
                                             </h6>
                                             <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
@@ -144,7 +146,8 @@
                                         <div class="media-body">
                                             <h6 class="mt-0 txt-danger">
                                                 <span>
-                                                    <i class="alert-color font-danger" data-feather="alert-circle"></i>
+                                                    <i class="alert-color font-danger"
+                                                        data-feather="alert-circle"></i>
                                                 </span>250 MB trash files
                                             </h6>
                                             <p class="mb-0">Lorem ipsum dolor sit amet, consectetuer.</p>
@@ -163,7 +166,7 @@
                         <li class="onhover-dropdown">
                             <div class="media align-items-center">
                                 <img class="align-self-center pull-right img-50 blur-up lazyloaded"
-                                    src="{{asset('backend/assets/images/dashboard/user3.jpg')}}" alt="header-user">
+                                    src="{{ asset('backend/assets/images/dashboard/user3.jpg') }}" alt="header-user">
                                 <div class="dotted-animation">
                                     <span class="animate-circle"></span>
                                     <span class="main-circle"></span>
@@ -215,7 +218,8 @@
                     <div class="logo-wrapper">
                         <a href="index.html">
                             <img class="d-none d-lg-block blur-up lazyloaded"
-                                src="{{asset('backend/assets/images/dashboard/multikart-logo.png')}}" alt="">
+                                src="{{ asset('backend/assets/images/dashboard/multikart-logo.png') }}"
+                                alt="">
                         </a>
                     </div>
                 </div>
@@ -223,15 +227,16 @@
                     <a href="javascript:void(0)" class="sidebar-back d-lg-none d-block"><i class="fa fa-times"
                             aria-hidden="true"></i></a>
                     <div class="sidebar-user">
-                        <img class="img-60" src="{{asset('backend/assets/images/dashboard/user3.jpg')}}" alt="#">
+                        <img class="img-60" src="{{ asset('backend/assets/images/dashboard/user3.jpg') }}"
+                            alt="#">
                         <div>
-                            <h6 class="f-14">{{Auth::user()->name}}</h6>
+                            <h6 class="f-14">{{ Auth::user()->name }}</h6>
                             <p>general manager.</p>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
                         <li>
-                            <a class="sidebar-header" href="index.html">
+                            <a class="sidebar-header" href="{{url('admin/dashboard')}}">
                                 <i data-feather="home"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -245,76 +250,33 @@
                             </a>
 
                             <ul class="sidebar-submenu">
+                                
                                 <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="fa fa-circle"></i>
-                                        <span>Physical</span>
-                                        <i class="fa fa-angle-right pull-right"></i>
+                                    <a href="{{url('admin/category')}}">
+                                        <i class="fa fa-circle"></i>Category
                                     </a>
-
-                                    <ul class="sidebar-submenu">
-                                        <li>
-                                            <a href="category.html">
-                                                <i class="fa fa-circle"></i>Category
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="category-sub.html">
-                                                <i class="fa fa-circle"></i>Sub Category</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="product-list.html">
-                                                <i class="fa fa-circle"></i>Product List</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="product-detail.html">
-                                                <i class="fa fa-circle"></i>Product Detail</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="add-product.html">
-                                                <i class="fa fa-circle"></i>Add Product
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
 
                                 <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="fa fa-circle"></i>
-                                        <span>Digital</span>
-                                        <i class="fa fa-angle-right pull-right"></i>
-                                    </a>
-
-                                    <ul class="sidebar-submenu">
-                                        <li>
-                                            <a href="category-digital.html">
-                                                <i class="fa fa-circle"></i>Category
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="category-digitalsub.html">
-                                                <i class="fa fa-circle"></i>Sub Category
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="product-listdigital.html">
-                                                <i class="fa fa-circle"></i>Product List
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="add-digital-product.html">
-                                                <i class="fa fa-circle"></i>Add Product
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <a href="category-sub.html">
+                                        <i class="fa fa-circle"></i>Sub Category</a>
                                 </li>
+
+                                <li>
+                                    <a href="product-list.html">
+                                        <i class="fa fa-circle"></i>Product List</a>
+                                </li>
+
+                                <li>
+                                    <a href="product-detail.html">
+                                        <i class="fa fa-circle"></i>Product Detail</a>
+                                </li>
+
+                                <li>
+                                    <a href="add-product.html">
+                                        <i class="fa fa-circle"></i>Add Product
+                                    </a>
+                                </li>                              
 
                                 <li>
                                     <a href="product-review.html">
@@ -542,18 +504,18 @@
                         </li>
 
                         <li>
-                        
-                            <a class="sidebar-header" href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();" >
+
+                            <a class="sidebar-header" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
                                 <i data-feather="log-in"></i>
                                 <span>Logout</span>
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}"
-                                                    method="POST" class="d-none">
-                                                    @csrf
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
 
-                                                </form>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -583,7 +545,8 @@
                                 <ul class="list">
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/user.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/user.jpg') }}"
+                                            alt="">
                                         <div class="status-circle online"></div>
                                         <div class="about">
                                             <div class="name">Vincent Porter</div>
@@ -592,7 +555,8 @@
                                     </li>
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/user1.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/user1.jpg') }}"
+                                            alt="">
                                         <div class="status-circle away"></div>
                                         <div class="about">
                                             <div class="name">Ain Chavez</div>
@@ -601,7 +565,8 @@
                                     </li>
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/user2.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/user2.jpg') }}"
+                                            alt="">
                                         <div class="status-circle online"></div>
                                         <div class="about">
                                             <div class="name">Kori Thomas</div>
@@ -610,7 +575,8 @@
                                     </li>
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/user3.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/user3.jpg') }}"
+                                            alt="">
                                         <div class="status-circle online"></div>
                                         <div class="about">
                                             <div class="name">Erica Hughes</div>
@@ -619,7 +585,8 @@
                                     </li>
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/user3.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/user3.jpg') }}"
+                                            alt="">
                                         <div class="status-circle offline"></div>
                                         <div class="about">
                                             <div class="name">Ginger Johnston</div>
@@ -628,7 +595,8 @@
                                     </li>
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/user5.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/user5.jpg') }}"
+                                            alt="">
                                         <div class="status-circle away"></div>
                                         <div class="about">
                                             <div class="name">Prasanth Anand</div>
@@ -637,7 +605,8 @@
                                     </li>
                                     <li class="clearfix">
                                         <img class="rounded-circle user-image blur-up lazyloaded"
-                                            src="{{asset('backend/assets/images/dashboard/designer.jpg')}}" alt="">
+                                            src="{{ asset('backend/assets/images/dashboard/designer.jpg') }}"
+                                            alt="">
                                         <div class="status-circle online"></div>
                                         <div class="about">
                                             <div class="name">Hileri Jecno</div>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\ShopController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CouponController;
 use App\Http\Controllers\Frontend\ContactController;
@@ -34,6 +35,6 @@ Route::get('/contact',[ContactController::class, 'index'])->name('frontend.conta
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('dashboard',[DashboardController::class, 'index'])->name('admin.dashboard');
-
-
+    Route::get('category',[CategoryController::class, 'index'])->name('admin.category.index');
+    Route::post('category',[CategoryController::class, 'store']);
 });
