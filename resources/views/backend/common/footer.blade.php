@@ -15,6 +15,8 @@
 </div>
 </div>
 
+
+
 <!-- latest jquery-->
 <script src="{{asset('backend/assets/js/jquery-3.3.1.min.js')}}"></script>
 
@@ -70,9 +72,26 @@
 
 <!-- lazyload js-->
 <script src="{{asset('backend/assets/js/lazysizes.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>\
+@if(Session::has('message'))
+
+<script>
+    toastr.options={
+        "progressBar":true,
+        "closeButton":true,
+    }
+    
+    toastr.success('{{Session::get('message')}}','Success!',{timeOut:12000});
+</script>
+
+
+
+@endif
+
 
 <!--script admin-->
 <script src="{{asset('backend/assets/js/admin-script.js')}}"></script>
+
 </body>
 
 </html>

@@ -57,9 +57,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        $category=Category::orderBy('id','DESC')->get();
+        return view('backend.categories.index',['category'=>$category]);
     }
 
     /**

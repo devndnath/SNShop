@@ -35,6 +35,14 @@ Route::get('/contact',[ContactController::class, 'index'])->name('frontend.conta
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('dashboard',[DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('category',[CategoryController::class, 'index'])->name('admin.category.index');
-    Route::post('category',[CategoryController::class, 'store']);
+    Route::controller(CategoryController::class)->group(function(){
+
+        Route::get('/category', 'index')->name('admin.category.index');
+        Route::post('/category', 'store')->name('admin.category.index');
+        Route::get('/category', 'show')->name('admin.category.index');
+        Route::get('/category/{category}/edit', 'edit')->name('admin.category.index');
+
+
+    });
+    
 });
