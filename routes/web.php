@@ -40,7 +40,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/category', 'index')->name('admin.category.index');
         Route::post('/category', 'store')->name('admin.category.index');
         Route::get('/category', 'show')->name('admin.category.index');
-        Route::get('/category/{category}/edit', 'edit')->name('admin.category.index');
+        Route::put('/category/{id}', 'update')->name('admin.category.index');
+        Route::get('/category/{id}/delete', 'destroy')->name('admin.category.index');
 
 
     });

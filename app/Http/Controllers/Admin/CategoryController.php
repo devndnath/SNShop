@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\CategoryFormRequest;
 
 class CategoryController extends Controller
@@ -66,24 +67,54 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        // $item=Category::all()->get();
+        // return view('backend.categories.index',['item'=>$item]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CategoryFormRequest $request, $id)
     {
-        //
+        $validatedData=$request->validated();
+
+        $category = Category::findOrFail($id);
+        $category->name=$validatedData['name'];
+        $category->slug=Str::slug($validatedData['name']);
+
+        if($request->hasFile('image')){
+            $path = 'uploads/category/'.$category->image;
+            if (File::exists($path)){
+                File::delete($path);
+            }
+
+            $file=$request->file('image');
+            $ext=$file->getClientOriginalExtension();
+            $filename=time().'.'.$ext;
+            $file->move('uploads/category/',$filename);
+            $category->image=$filename;
+        }
+
+        $category->update();
+        return redirect('admin/category')->with('message','Category Updated Successfully');
     }
+   
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $path = 'uploads/category/'.$category->image;
+        if (File::exists($path)){
+            File::delete($path);
+        }
+        $category->delete();
+        return redirect('admin/category')->with('message','Category Deleted Successfully');
+
     }
 }
