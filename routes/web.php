@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\CouponController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
 
 /*
@@ -38,11 +39,18 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::controller(CategoryController::class)->group(function(){
 
         Route::get('/category', 'index')->name('admin.category.index');
-        Route::post('/category', 'store')->name('admin.category.index');
-        Route::get('/category', 'show')->name('admin.category.index');
-        Route::put('/category/{id}', 'update')->name('admin.category.index');
-        Route::get('/category/{id}/delete', 'destroy')->name('admin.category.index');
+        Route::post('/category', 'store')->name('admin.category.store');
+        Route::get('/category', 'show')->name('admin.category.show');
+        Route::put('/category/{id}', 'update')->name('admin.category.update');
+        Route::get('/category/{id}/delete', 'destroy')->name('admin.category.destroy');
 
+
+    });
+    Route::controller(SubcategoryController::class)->group(function(){
+
+        Route::get('/sub-category', 'index')->name('admin.subcategory.index');
+        Route::post('/sub-category', 'store')->name('admin.category.store');
+        Route::get('/sub-category', 'show')->name('admin.category.show');
 
     });
     

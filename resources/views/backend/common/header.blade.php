@@ -269,7 +269,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="category-sub.html">
+                                    <a href="{{url('admin/sub-category')}}">
                                         <i class="fa fa-circle"></i>Sub Category</a>
                                 </li>
 

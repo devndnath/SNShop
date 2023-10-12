@@ -81,7 +81,21 @@
         "closeButton":true,
     }
     
-    toastr.success('{{Session::get('message')}}','Success!',{timeOut:12000});
+    toastr.success('{{Session::get('message')}}','Success!',{timeOut:1200});
+</script>
+
+
+
+@endif
+@if(Session::has('error'))
+
+<script>
+    toastr.options={
+        "progressBar":true,
+        "closeButton":true,
+    }
+    
+    toastr.error('{{Session::get('error')}}','Error!',{timeOut:1200});
 </script>
 
 

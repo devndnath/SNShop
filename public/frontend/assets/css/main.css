@@ -6309,7 +6309,7 @@ body .ui-tooltip {
   line-height: 20px;
   text-align: center;
   border-radius: 50%;
-  background-color: var(--tp-pink-1);
+  background-color: var(--tp-theme-primary);;
   color: var(--tp-common-white);
   font-size: 12px;
   font-weight: 700;
