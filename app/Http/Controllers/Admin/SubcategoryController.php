@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SubcategoryFormRequest;
 
 class SubcategoryController extends Controller
@@ -88,7 +89,27 @@ class SubcategoryController extends Controller
      */
     public function update(SubcategoryFormRequest $request, string $id)
     {
-        //
+        $validatedData=$request->validated();
+
+        $subcategory = Subcategories::findOrFail($id);
+        $subcategory->name=$validatedData['name'];
+        $subcategory->slug=Str::slug($validatedData['slug']);
+
+        if($request->hasFile('image')){
+            $path = 'uploads/subcategory/'.$subcategory->image;
+            if (File::exists($path)){
+                File::delete($path);
+            }
+
+            $file=$request->file('image');
+            $ext=$file->getClientOriginalExtension();
+            $filename=time().'.'.$ext;
+            $file->move('uploads/category/',$filename);
+            $subcategory->image=$filename;
+        }
+
+        $subcategory->update();
+        return redirect('admin/sub-category')->with('message','Subcategory Updated Successfully');
     }
 
     /**
@@ -96,6 +117,12 @@ class SubcategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
+        $subcategory = Subcategories::findOrFail($id);
+        $path = 'uploads/category/'.$subcategory->image;
+        if (File::exists($path)){
+            File::delete($path);
+        }
+        $subcategory->delete();
+        return redirect('admin/sub-category')->with('message','Category Deleted Successfully');
+}
 }

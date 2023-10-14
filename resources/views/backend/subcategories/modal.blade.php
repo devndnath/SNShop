@@ -11,7 +11,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form action="{{ url('admin/subcategory/'.$subcategory->id)}}"
+            <form action="{{ url('admin/sub-category/'.$subcategory->id)}}"
                 method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
@@ -42,6 +42,22 @@
                                 <small
                                     class="text-danger">{{ $message }}</small>
                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom03" class="mb-1">Parent category :</label>
+                            <select class="form-select selectcategory" name="parent_category" id="">
+                                <option value="{{$subcategory->parent_category}}" selected>{{$subcategory->parent_category}}</option>
+                            @foreach ($category as $category)
+                                <option value="{{$category->name}}">
+                                    {{$category->name}}
+                                </option>
+                                
+                            @endforeach
+                                
+
+                            </select>
+                            
+                           
                         </div>
                         <div class="form-group mb-0">
                             <label for="validationCustom03"
@@ -86,7 +102,7 @@
                    </div>
               </div>
                 <div class="modal-footer">
-                    <a href="{{url('admin/subcategory/'.$subcategory->id.'/delete')}}">
+                    <a href="{{url('admin/sub-category/'.$subcategory->id.'/delete')}}">
                         <button class="btn btn-primary" type="submit" value="Save">Yes!</button>
                     </a>
                     <button class="btn btn-secondary" data-bs-dismiss="modal">No</button>

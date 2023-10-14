@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="page-header-left">
-                            <h3>Category
-                                <small>Multikart Admin panel</small>
+                            <h3>Sub Category
+                                <small> Admin panel</small>
                             </h3>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
 
                             <button type="button" class="btn btn-primary mt-md-0 mt-2" data-bs-toggle="modal"
                                 data-original-title="test" data-bs-target="#exampleModal">Add
-                                Category</button>
+                                </button>
                         </div>
 
                         <div class="card-body">

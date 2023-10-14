@@ -49,8 +49,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::controller(SubcategoryController::class)->group(function(){
 
         Route::get('/sub-category', 'index')->name('admin.subcategory.index');
-        Route::post('/sub-category', 'store')->name('admin.category.store');
-        Route::get('/sub-category', 'show')->name('admin.category.show');
+        Route::post('/sub-category', 'store')->name('admin.subcategory.store');
+        Route::get('/sub-category', 'show')->name('admin.subcategory.show');
+        Route::put('/sub-category/{id}', 'update')->name('admin.subcategory.update');
+        Route::get('/sub-category/{id}/delete', 'destroy')->name('admin.subcategory.destroy');
 
     });
     
