@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
+
+use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -55,5 +58,15 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('/sub-category/{id}/delete', 'destroy')->name('admin.subcategory.destroy');
 
     });
+    Route::controller(BrandsController::class)->group(function(){
+
+        Route::get('/brand', 'index')->name('admin.Brands.index');
+        Route::post('/brand', 'store')->name('admin.Brands.store');
+        Route::get('/brand', 'show')->name('admin.Brands.show');
+        Route::put('/brand/{id}', 'update')->name('admin.Brands.update');
+        Route::get('/brand/{id}/delete', 'destroy')->name('admin.Brands.destroy');
+
+    });
+    
     
 });

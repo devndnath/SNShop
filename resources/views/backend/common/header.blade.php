@@ -274,8 +274,8 @@
                                 </li>
 
                                 <li>
-                                    <a href="product-list.html">
-                                        <i class="fa fa-circle"></i>Product List</a>
+                                    <a href="{{url('admin/brand')}}">
+                                        <i class="fa fa-circle"></i>Brands</a>
                                 </li>
 
                                 <li>
